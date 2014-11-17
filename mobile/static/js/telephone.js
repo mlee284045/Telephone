@@ -10,6 +10,11 @@ telephone.config(['$routeProvider', function($routeProvider) {
         when('/start/', {
             templateUrl: '/static/js/views/start.html',
             controller: startController
+//            This will be shifted into the home page controller
+        }).
+        when('/profile/', {
+            templateUrl: '/static/js/views/profile.html',
+            controller: profileController
         }).
         otherwise({redirectTo: '/'});
 }]);
