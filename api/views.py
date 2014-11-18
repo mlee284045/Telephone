@@ -41,7 +41,9 @@ class TelephoneViewSet(viewsets.ModelViewSet):
     queryset = Telephone.objects.all()
     serializer_class = TelephoneSerializer
     authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticatedOrReadOnly,)
     permission_classes = (AllowAny,)
 
-    # def pre_save(self, obj):
-    #     obj.owner = self.request.user
+    def pre_save(self, obj):
+        # obj.owner = self.request.user
+        obj.get_sound_url()
