@@ -1,28 +1,33 @@
 from django.contrib.auth.models import User
 from django.db import models
 import requests
+# from django.conf import settings
+# from django.db.models.signals import post_save
+# from django.dispatch import receiver
+# from rest_framework.authtoken.models import Token
+
+
+# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+# def create_auth_token(sender, instance=None, created=False, **kwargs):
+#     if created:
+#         Token.objects.create(user=instance)
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, related_name='profile')
-    picture = models.ImageField(null=True)
+    user = models.OneToOneField(User, related_name='profile', primary_key=True)
+    picture = models.ImageField(null=True, upload_to='profile_pics')
     description = models.TextField(blank=True, null=True)
+
+    def __unicode__(self):
+        return 'Profile: {}'.format(self.user.username)
 
 
 class Telephone(models.Model):
-    sound_url = models.URLField(null=True)
+    sound_url = models.URLField(null=True, blank=True)
     text = models.CharField(max_length=200)
-    owner = models.ForeignKey(User, related_name='telephone')
-    original = models.PositiveSmallIntegerField(null=True)
-    # Little hacky but will contain pk's of copies by concatenating them to the string
-    copies = models.CommaSeparatedIntegerField(max_length=200, null=True)
-
-    def update_copies(self, new_pk):
-        print 'UPDATE'
-        print '-{}-'.format(self.copies)
-        self.copies += ',{}'.format(new_pk)
-        self.save(update_fields=['copies'])
-        print '--{}--'.format(self.copies)
+    owner = models.ForeignKey(User, related_name='telephones')
+    original = models.ForeignKey('self', null=True, blank=True, related_name='copies')
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='child')
 
     def get_sound_url(self):
         url = 'http://tts-api.com/tts.mp3?q={}&return_url=1'.format(self.text)
@@ -33,14 +38,11 @@ class Telephone(models.Model):
         copy = Telephone.objects.create(
             text=changed_text,
             owner=new_owner,
-            original=self.original if self.original else self.pk
+            original=self.original if self.original else self,
+            parent=self
         )
         copy.get_sound_url()
-        if self.original:
-            orig_telephone = Telephone.objects.get(pk=copy.original)
-            orig_telephone.copies += ',{}'.format(copy.pk)
-            Telephone.objects.filter(pk=copy.original).update(copies=orig_telephone.copies)
-            print 'YOOO=={}==HOOO'.format(Telephone.objects.get(pk=copy.original).copies)
-        else:
-            self.update_copies(copy.pk)
         return copy
+
+    def __unicode__(self):
+        return '{}: {}'.format(self.owner.username, self.text)
