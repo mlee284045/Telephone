@@ -4,9 +4,12 @@ import requests
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, related_name='profile')
-    picture = models.ImageField(null=True)
+    user = models.OneToOneField(User, related_name='profile', primary_key=True)
+    picture = models.ImageField(null=True, upload_to='profile_pics')
     description = models.TextField(blank=True, null=True)
+
+    def __unicode__(self):
+        return '{}: {}'.format(self.user.username, self.description)
 
 
 class Telephone(models.Model):
@@ -30,3 +33,6 @@ class Telephone(models.Model):
         )
         copy.get_sound_url()
         return copy
+
+    def __unicode__(self):
+        return '{}: {}'.format(self.owner.username, self.text)
