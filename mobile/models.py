@@ -1,16 +1,16 @@
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 import requests
-from rest_framework.authtoken.models import Token
+# from django.conf import settings
+# from django.db.models.signals import post_save
+# from django.dispatch import receiver
+# from rest_framework.authtoken.models import Token
 
 
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def create_auth_token(sender, instance=None, created=False, **kwargs):
-    if created:
-        Token.objects.create(user=instance)
+# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+# def create_auth_token(sender, instance=None, created=False, **kwargs):
+#     if created:
+#         Token.objects.create(user=instance)
 
 
 class Profile(models.Model):
@@ -23,11 +23,11 @@ class Profile(models.Model):
 
 
 class Telephone(models.Model):
-    sound_url = models.URLField(null=True)
+    sound_url = models.URLField(null=True, blank=True)
     text = models.CharField(max_length=200)
     owner = models.ForeignKey(User, related_name='telephones')
-    original = models.ForeignKey('self', null=True, related_name='copies')
-    parent = models.ForeignKey('self', null=True, related_name='child')
+    original = models.ForeignKey('self', null=True, blank=True, related_name='copies')
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='child')
 
     def get_sound_url(self):
         url = 'http://tts-api.com/tts.mp3?q={}&return_url=1'.format(self.text)

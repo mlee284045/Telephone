@@ -14,6 +14,6 @@ urlpatterns = patterns('',
     url(r'^api/', include(router.urls)),  # Include router urls into our urlpatterns
     url(r'^api/register/', api.views.UserRegister.as_view()),
     url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^token-auth/', api.views.obtain_auth_token),
+    # url(r'^token-auth/', api.views.obtain_auth_token),
     url(r'^admin/', include(admin.site.urls)),
 )

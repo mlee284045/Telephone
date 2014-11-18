@@ -3,6 +3,7 @@ from rest_framework import permissions
 
 User = get_user_model()  # Reference active User model
 
+
 class IsOwnerOrReadOnly(permissions.BasePermission):
     """
     Custom permission to only allow owners of an object to edit it.
@@ -19,9 +20,10 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         else:
             return obj.owner == request.user
 
+
 class IsAuthenticatedOrCreate(permissions.BasePermission):
     """
-    Custom permission to only allow anon users to create new Users
+    Custom permission to only allow anon users to have write permission
     """
     def has_permission(self, request, view):
         # Write permissions are only allowed for unauthenticated users
