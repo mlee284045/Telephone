@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
 /****************************************************/
 /*Positioning for the main sectioning element tags*/
 body {
@@ -7,6 +8,8 @@ body {
 div {
     margin: 15px;
     border-radius: 6px;
+    font-family: 'Oxygen',Arial, sans-serif;
+    font-weight: 300;
 }
 
 .footer {
@@ -34,10 +37,12 @@ div {
 /*Custom styling for the Telephone "sign" header*/
 .telephone {
     border: 2px solid black;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .telephone p {
     font-size: 4em;
+    font-weight: 400;
     letter-spacing: .15em;
     padding: 0;
     margin: -10px 0 -5px 0;
@@ -68,5 +73,5 @@ div {
 }
 
 .transparent {
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
 }

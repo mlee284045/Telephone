@@ -1,7 +1,12 @@
-<h1>Login Page</h1>
-<hr>
-<form>
-    <span>Username: <input ng-model="user.email"></span><br>
-    <span>Password: <input ng-model="user.password"></span><br>
-    <button ng-click="login();">Login</button>
-</form>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 login-page">
+        <div class="centered">
+            <h1>Login</h1>
+        </div>
+        <p>Username: <input ng-model="user.username"></p>
+        <p>Password: <input ng-model="user.password"></p>
+        <div class="centered">
+            <button class="btn btn-primary equal-btn" ng-click="loginUser();">Submit</button>
+        </div>
+    </div>
+</div>
