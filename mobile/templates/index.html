@@ -40,44 +40,35 @@
         <script src="{% static "js/controllers/loginController.js" %}"></script>
         <script src="{% static "js/controllers/passController.js" %}"></script>
 
-        <!-- CSS -->
+        <!-- Bootstrap & Font Awesome CSS by CDN -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!--- Custom CSS --->
         <link rel="stylesheet" href="{% static "css/index.css" %}">
+        <link rel="stylesheet" href="{% static "css/home.css" %}">
+        <link rel="stylesheet" href="{% static "css/message.css" %}">
 
     </head>
 
-    <body>
+    <body class="color-red">
         <!--- Sidebars --->
-        <div ng-app="telephone">
-                <nav class="navbar" role="navigation">
-                    <div class="container-fluid">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="#">Telephone</a>
-                        </div>
-
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-                                <li><a href="#">Next</a></li>
-                            </ul>
-                        </div><!-- /.navbar-collapse -->
-                    </div><!-- /.container-fluid -->
-                </nav>
-            <div class="container-fluid">
-                <div class="view app-content" ng-view></div>
+        <div ng-app="telephone" class="transparent">
+            <div class="navbar container-fluid transparent">
+                <div class="col-xs-6 col-xs-offset-3 centered title transparent">
+                    <a href="#"><img src="{% static "img/Crown.png" %}" width="100px"></a><br>
                 </div>
             </div>
-        <footer class="footer">
-            <div class="container">
-                <h1>Footer</h1>
+            <div class="container centered telephone color-white">
+                <p>Telephone</p>
+            </div>
+            <div class="container color-white inset-shadow outset-shadow">
+                <div class="view app-content color-white" ng-view></div>
+            </div>
+        </div>
+        <footer class="footer color-white">
+            <div class="container-fluid color-white">
+                <p>Created by <a href="https://github.com/mlee284045/Telephone">Mike Lee.</a></p>
             </div>
         </footer>
     </body>
