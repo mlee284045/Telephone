@@ -1,17 +1,23 @@
 function startController($scope, $http) {
     console.log('start');
-    $scope.getSound = function() {
-        $http.jsonp('http://tts-api.com/tts.mp3?q=' + $scope.text + '&return_url=1', {'Content-Type': 'text/plain', 'responseType': 'text'}).
+
+    $scope.audio = true;
+
+    $http.get('/api/users/');
+
+    $scope.getSound = function(user) {
+        var data = {
+            "text": $scope.text,
+            "owner": user
+        };
+        $http.post('/api/telephone/', data).
             success(function(res) {
                 console.log('worked');
-//                console.log(res);
+                console.log(res);
             }).
-            then(function(err) {
-//                console.log(err.data);
-                console.log(err.status);
-                console.log(err.headers);
-                console.log(err.config);
-                console.log(err.statusText);
-            });
+            error(function(err) {
+                console.log('did not work');
+                console.log(err);
+        });
     }
 }
