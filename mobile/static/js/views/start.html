@@ -1,12 +1,11 @@
-<h1>Start Telephone</h1>
-<hr>
-
-<h3>You only get one chance</h3>
-<textarea rows="8" ng-model="text" placeholder="Sentence cannot be longer than 200 chars"></textarea><br>
-<button class="btn" ng-click="getSound()">Create Telephone</button><br>
-<div>{{ text }}</div>
-
-<hr>
-
-<h1 ng-show="audio">Audio</h1>
-<audio src="{{ sound.url }}"></audio>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 start-page">
+        <div class="centered">
+            <h2>Create Message</h2>
+        </div>
+        <p>Message: <textarea rows="6" ng-model="text" placeholder="200 char limit"></textarea></p>
+        <div class="centered">
+            <button class="btn btn-danger equal-btn" ng-click="createSound();">Create</button>
+        </div>
+    </div>
+</div>

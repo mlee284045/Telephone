@@ -40,10 +40,14 @@
         <script src="{% static "js/controllers/loginController.js" %}"></script>
         <script src="{% static "js/controllers/passController.js" %}"></script>
 
-        <!-- CSS -->
+        <!-- Bootstrap & Font Awesome CSS by CDN -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!--- Custom CSS --->
         <link rel="stylesheet" href="{% static "css/index.css" %}">
         <link rel="stylesheet" href="{% static "css/home.css" %}">
+        <link rel="stylesheet" href="{% static "css/message.css" %}">
 
     </head>
 
@@ -58,7 +62,7 @@
             <div class="container centered telephone color-white">
                 <p>Telephone</p>
             </div>
-            <div class="container color-white">
+            <div class="container color-white inset-shadow outset-shadow">
                 <div class="view app-content color-white" ng-view></div>
             </div>
         </div>

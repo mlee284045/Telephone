@@ -38,6 +38,7 @@ div {
 .telephone {
     border: 2px solid black;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    box-shadow: inset 0 0 1em black;
 }
 
 .telephone p {
@@ -51,7 +52,7 @@ div {
 /****************************************************/
 /*Custom classes for custom color schemes*/
 .color-red {
-    background: linear-gradient(to bottom, rgba(205, 0, 0, 0.7),  rgba(205, 0, 0, .7)), url("../img/fresh_snow.png") repeat;
+    background: linear-gradient(to bottom, rgba(205, 0, 0, 0.6),  rgba(205, 0, 0, .6)), url("../img/fresh_snow.png") repeat;
 }
 
 .color-white {
@@ -74,4 +75,12 @@ div {
 
 .transparent {
     background: rgba(0, 0, 0, 0);
+}
+
+.inset-shadow {
+    box-shadow: inset 0 0 1em black;
+}
+
+.outset-shadow {
+    box-shadow: 0 0 1em black;
 }
