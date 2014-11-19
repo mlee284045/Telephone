@@ -57,5 +57,3 @@ target/
 *.pyc
 local_settings.py
 .coverage
-static/
-staticfiles/
