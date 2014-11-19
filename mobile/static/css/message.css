@@ -1,0 +1,21 @@
+.pass-page textarea, .start-page textarea {
+    width: 100%;
+    border: 1px dotted lightgray;
+    resize: none;
+}
+
+.start-page p, .pass-page p {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.start-page h2, .pass-page h2 {
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
+.pass-page i {
+    font-size: 5em;
+    color: rgba(205,0,0,.7);
+    cursor: pointer;
+}
