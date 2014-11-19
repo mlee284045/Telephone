@@ -1,0 +1,8 @@
+---
+
+
+db_name: "telephone"
+db_user: "telephone"
+db_password: Awesome
+nginx_server_name: ec2-54-68-222-235.us-west-2.compute.amazonaws.com
+django_settings_file: telephone.settings
