@@ -1,5 +1,12 @@
+/****************************************************/
+/*Positioning for the main sectioning element tags*/
 body {
     margin-bottom: 60px;
+}
+
+div {
+    margin: 15px;
+    border-radius: 6px;
 }
 
 .footer {
@@ -9,6 +16,57 @@ body {
     width: 100%;
 }
 
-.navbar, .footer {
-    background: #f5f5f5;
+.footer div {
+    margin-top: 20px;
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.container-fluid {
+    margin: 0;
+    border-radius: 0;
+}
+
+/****************************************************/
+/*Custom styling for the Telephone "sign" header*/
+.telephone {
+    border: 2px solid black;
+}
+
+.telephone p {
+    font-size: 4em;
+    letter-spacing: .15em;
+    padding: 0;
+    margin: -10px 0 -5px 0;
+}
+
+/****************************************************/
+/*Custom classes for custom color schemes*/
+.color-red {
+    background: linear-gradient(to bottom, rgba(205, 0, 0, 0.7),  rgba(205, 0, 0, .7)), url("../img/fresh_snow.png") repeat;
+}
+
+.color-white {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3),  rgba(255, 255, 255, .3)), url("../img/nice_snow.png") repeat;
+}
+
+/****************************************************/
+/*Create simple classes to assign specific stylings*/
+.centered {
+    text-align: center;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.transparent {
+    background: rgba(0,0,0,0);
 }
