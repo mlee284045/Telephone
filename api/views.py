@@ -1,7 +1,9 @@
+from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from rest_framework import viewsets, generics
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.response import Response
 from rest_framework.views import APIView
 from api.permissions import IsAuthenticatedOrCreate, IsOwnerOrReadOnly
 from api.serializers import ProfileSerializer, UserSerializer, TelephoneSerializer
@@ -19,31 +21,38 @@ class UserRegister(generics.CreateAPIView):
             obj.save()
 
 
-class UserLogin(APIView):
-    serializer_class = UserSerializer
-    permission_classes = (IsAuthenticatedOrCreate,)
+class AuthView(APIView):
+    authentication_classes = (BasicAuthentication,)
+
+    def post(self, request, *args, **kwargs):
+        login(request, request.user)
+        return Response(UserSerializer(request.user).data)
+
+    def delete(self, request, *args, **kwargs):
+        logout(request)
+        return Response({})
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
+    authentication_classes = (BasicAuthentication,)
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = (IsOwnerOrReadOnly,)
-    authentication_classes = (TokenAuthentication,)
+    authentication_classes = (BasicAuthentication,)
 
 
 class TelephoneViewSet(viewsets.ModelViewSet):
     queryset = Telephone.objects.all()
     serializer_class = TelephoneSerializer
-    authentication_classes = (TokenAuthentication,)
-    # permission_classes = (IsAuthenticatedOrReadOnly,)
-    permission_classes = (AllowAny,)
+    authentication_classes = (BasicAuthentication,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def pre_save(self, obj):
-        # obj.owner = self.request.user
+        obj.owner = self.request.user
         obj.get_sound_url()

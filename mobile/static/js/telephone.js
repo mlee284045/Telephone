@@ -12,6 +12,10 @@ telephone.config(['$routeProvider', function($routeProvider) {
             controller: startController
 //            This will be shifted into the home page controller
         }).
+        when('/pass/', {
+            templateUrl: '/static/js/views/pass.html',
+            controller: passController
+        }).
         when('/login/', {
             templateUrl: '/static/js/views/login.html',
             controller: loginController

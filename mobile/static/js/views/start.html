@@ -1,3 +1,12 @@
-<h1>Start Telephone</h1><hr>
+<h1>Start Telephone</h1>
+<hr>
+
+<h3>You only get one chance</h3>
 <textarea rows="8" ng-model="text" placeholder="Sentence cannot be longer than 200 chars"></textarea><br>
-<button ng-click="getSound()">Create Telephone</button>
+<button class="btn" ng-click="getSound()">Create Telephone</button><br>
+<div>{{ text }}</div>
+
+<hr>
+
+<h1 ng-show="audio">Audio</h1>
+<audio src="{{ sound.url }}"></audio>
