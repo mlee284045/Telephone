@@ -31,13 +31,13 @@
         <script src="{% static "js/filter/trustedSource.js" %}"></script>
 
         <!--- Controllers --->
-        <script src="{% static "js/controllers/homeController.js" %}"></script>
+        <script src="{% static "js/controllers/landingController.js" %}"></script>
         <script src="{% static "js/controllers/startController.js" %}"></script>
         <script src="{% static "js/controllers/profileController.js" %}"></script>
         <script src="{% static "js/controllers/registerController.js" %}"></script>
         <script src="{% static "js/controllers/loginController.js" %}"></script>
         <script src="{% static "js/controllers/passController.js" %}"></script>
-        <script src="{% static "js/controllers/landingController.js" %}"></script>
+        <script src="{% static "js/controllers/homeController.js" %}"></script>
         <script src="{% static "js/controllers/successController.js" %}"></script>
 
         <!-- Bootstrap & Font Awesome CSS by CDN -->
@@ -46,18 +46,16 @@
 
         <!--- Custom CSS --->
         <link rel="stylesheet" href="{% static "css/index.css" %}">
-        <link rel="stylesheet" href="{% static "css/home.css" %}">
+        <link rel="stylesheet" href="{% static "css/page.css" %}">
         <link rel="stylesheet" href="{% static "css/message.css" %}">
 
     </head>
 
     <body class="color-red">
-        <header class="header color-white"><div class="top-head-curve"></div></header>
-        <div class="container-fluid color-white"></div>
-        <div ng-app="telephone" class="transparent">
+        <div ng-app="telephone" class="transparent app-container">
             <div class="navbar container-fluid transparent">
                 <div class="col-xs-6 col-xs-offset-3 centered title transparent">
-                    <a href="#"><img src="{% static "img/Crown.png" %}" width="100px"></a><br>
+                    <a href="/#/home/"><img src="{% static "img/Crown.png" %}" width="100px"></a><br>
                 </div>
             </div>
             <div class="container centered telephone color-white" id="cone-top">
@@ -67,9 +65,9 @@
                 <div class="view app-content color-white" ng-view></div>
             </div>
         </div>
-        <footer class="footer color-white">
-            <div class="container-fluid color-white">
-                <p>Created by <a href="https://github.com/mlee284045/Telephone">Mike Lee.</a></p>
+        <footer class="footer color-dark">
+            <div class="container-fluid">
+                <p>Created by <a href="https://github.com/mlee284045/Telephone">Mike Lee.</a> 2014</p>
             </div>
         </footer>
     </body>

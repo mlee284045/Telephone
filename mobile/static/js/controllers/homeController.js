@@ -1,14 +1,16 @@
-function homeController($scope, $location, $rootScope) {
-    $rootScope.cornerText = 'Login';
-    $rootScope.cornerUrl = '/#/Login/';
-
-    console.log('home');
-    $scope.login = function() {
-        $location.path('/login/');
+function homeController($scope, $location) {
+    if (localStorage['Authorization']) {
+        console.log('Authorized')
+    } else {
+        $location.path('/');
+    }
+    $scope.goCreate = function() {
+        $location.path('/start/');
     };
-
-    $scope.register = function() {
-        $location.path('/register/');
+    $scope.goPass = function() {
+        $location.path('/pass/');
     };
-
+    $scope.goProfile = function() {
+        $location.path('/profile/');
+    };
 }

@@ -1,16 +1,14 @@
-function landingController($scope, $location) {
-    if (localStorage['Authorization']) {
-        console.log('Authorized')
-    } else {
-        $location.path('/');
-    }
-    $scope.goCreate = function() {
-        $location.path('/start/');
+function landingController($scope, $location, $rootScope) {
+    $rootScope.cornerText = 'Login';
+    $rootScope.cornerUrl = '/#/Login/';
+
+    console.log('home');
+    $scope.login = function() {
+        $location.path('/login/');
     };
-    $scope.goPass = function() {
-        $location.path('/pass/');
+
+    $scope.register = function() {
+        $location.path('/register/');
     };
-    $scope.goProfile = function() {
-        $location.path('/profile/');
-    };
+
 }

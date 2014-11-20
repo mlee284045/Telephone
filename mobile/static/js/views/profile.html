@@ -2,19 +2,25 @@
     <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 login-page">
         <div class="centered">
             <h1>Profile</h1>
-            <img src="static/img/default-profile-photo.png" class="img-circle">
+            <img src="static/media/{{ profile.picture }}" class="img-circle">
         </div>
 
         <p>Username: <input ng-model="user.username" ng-readonly="editMode"></p>
         <p>Email: <input ng-model="user.email" ng-readonly="editMode"></p>
-        <p>First Name: <input ng-model="user.profile.first_name" ng-readonly="editMode"></p>
-        <p>Last Name: <input ng-model="user.profile.last_name" ng-readonly="editMode"></p>
-        <p>Description: <input ng-model="user.profile.description" ng-readonly="editMode"></p>
-        <button class="btn btn-danger equal-btn" ng-click="getTelephones();">Telephones</button>
-
-
+        <p>First Name: <input ng-model="user.first_name" ng-readonly="editMode"></p>
+        <p>Last Name: <input ng-model="user.last_name" ng-readonly="editMode"></p>
+        <p>Description: <input ng-model="profile.description" ng-readonly="editMode"></p><br>
         <div class="centered">
             <button class="btn btn-primary equal-btn" ng-click="toggleEdit();">Edit</button>
         </div>
+        <p>
+            <b>Telephone Messages:</b>
+            <ol>
+                <li ng-repeat="message in user.telephones track by $index">{{ message }}</li>
+            </ol>
+        </p>
+
+
+
     </div>
 </div>
