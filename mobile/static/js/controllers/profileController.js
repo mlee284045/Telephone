@@ -1,4 +1,5 @@
 function profileController($scope, $http) {
+    $scope.profile = {};
     var num = localStorage['id'];
     $scope.editMode = true;
     $http.get('api/users/'+ num + '/').
@@ -13,9 +14,17 @@ function profileController($scope, $http) {
         success(function(res) {
             console.log(res);
             $scope.profile = res;
+            if (!$scope.profile.picture) {
+                $scope.path = 'media';
+            } else {
+                $scope.path = 'img';
+                $scope.profile.picture = 'default-profile-photo.png';
+            }
         }).
         error(function(err) {
             console.log(err);
+            $scope.path = 'img';
+            $scope.profile.picture = 'default-profile-photo.png';
     });
 
 
