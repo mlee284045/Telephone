@@ -8,7 +8,7 @@ function loginController($scope, UserApi, $location) {
             $promise.
             then(function(res) {
                 localStorage['id'] = res.id;
+                $location.path('/home/')
             });
-        $location.path('/home/')
     }
 }

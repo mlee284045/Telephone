@@ -6,7 +6,7 @@ from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from api.permissions import IsAuthenticatedOrCreate, IsOwnerOrReadOnly
+from api.permissions import IsAuthenticatedOrCreate
 from api.serializers import ProfileSerializer, UserSerializer, TelephoneSerializer
 from mobile.models import Profile, Telephone
 
@@ -44,7 +44,7 @@ class UserViewSet(viewsets.ModelViewSet):
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    permission_classes = (IsOwnerOrReadOnly,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     authentication_classes = (BasicAuthentication,)
 
 

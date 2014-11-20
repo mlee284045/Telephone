@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'password', 'telephones', 'profile',)
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'password', 'telephones', 'profile',)
 
     def validate_password(self, attrs, source):
         """
@@ -35,6 +35,5 @@ class ProfileSerializer(serializers.ModelSerializer):
 
 
 class TelephoneSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Telephone

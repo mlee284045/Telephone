@@ -1,4 +1,4 @@
-function passController($scope, $http) {
+function passController($scope, $http, $location) {
     var num = 2;
     $scope.onlyOnce = true;
     $http.get('api/telephones/' + num + '/').
@@ -22,7 +22,6 @@ function passController($scope, $http) {
         };
         $http.post('api/telephones/' + num + '/pass_it_on/', data).
             success(function(res) {
-                console.log(res);
                 $location.path('/success/');
             }).
             error(function(err) {

@@ -4,13 +4,12 @@ telephone.config(['$routeProvider', function($routeProvider) {
     // Route code will go here
     $routeProvider.
         when('/', {
-            templateUrl: '/static/js/views/home.html',
-            controller: homeController
+            templateUrl: '/static/js/views/landing.html',
+            controller: landingController
         }).
         when('/start/', {
             templateUrl: '/static/js/views/start.html',
             controller: startController
-//            This will be shifted into the home page controller
         }).
         when('/pass/', {
             templateUrl: '/static/js/views/pass.html',
@@ -29,12 +28,12 @@ telephone.config(['$routeProvider', function($routeProvider) {
             controller: profileController
         }).
         when('/home/', {
-            templateUrl: '/static/js/views/landing.html',
-            controller: landingController
+            templateUrl: '/static/js/views/home.html',
+            controller: homeController
         }).
-        when('/home/', {
-            templateUrl: '/static/js/views/landing.html',
-            controller: landingController
+        when('/success/', {
+            templateUrl: '/static/js/views/success.html',
+            controller: successController
         }).
         otherwise({redirectTo: '/home/'});
 }]);

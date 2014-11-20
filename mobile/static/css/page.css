@@ -4,7 +4,11 @@
     font-size: 1.5em;
 }
 
-.home-page p, .register-page p, .login-page p {
+.big-btn {
+    width: 160px;
+}
+
+.landing-page p, .register-page p, .login-page p {
     font-size: 1.2em;
     font-weight: 400;
 }
@@ -14,6 +18,6 @@
     float: right;
 }
 
-.landing-page button {
-    font-size: 1em;
+.home-page button {
+    font-size: 1.3em;
 }
