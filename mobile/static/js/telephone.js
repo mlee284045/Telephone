@@ -28,5 +28,18 @@ telephone.config(['$routeProvider', function($routeProvider) {
             templateUrl: '/static/js/views/profile.html',
             controller: profileController
         }).
-        otherwise({redirectTo: '/'});
+        when('/home/', {
+            templateUrl: '/static/js/views/landing.html',
+            controller: landingController
+        }).
+        when('/home/', {
+            templateUrl: '/static/js/views/landing.html',
+            controller: landingController
+        }).
+        otherwise({redirectTo: '/home/'});
+}]);
+
+telephone.config(['$resourceProvider', function($resourceProvider) {
+  // Don't strip trailing slashes from calculated URLs
+  $resourceProvider.defaults.stripTrailingSlashes = false;
 }]);

@@ -1,5 +1,6 @@
-function registerController($scope, Api) {
-    $scope.register = function() {
-        Api.users.create($scope.user)
+function registerController($scope, UserApi) {
+    $scope.registerUser = function() {
+        console.log('registered');
+        UserApi.users.create($scope.user)
     }
 }

@@ -13,3 +13,7 @@
     width: 60%;
     float: right;
 }
+
+.landing-page button {
+    font-size: 1em;
+}

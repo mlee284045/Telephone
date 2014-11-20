@@ -15,4 +15,19 @@ function passController($scope, $http) {
         audio.play();
         $scope.onlyOnce = false;
     };
+    $scope.createSound = function() {
+        var data = {
+            "text": $scope.text,
+            "owner": 1
+        };
+        $http.post('api/telephones/' + num + '/pass_it_on/', data).
+            success(function(res) {
+                console.log(res);
+                $location.path('/success/');
+            }).
+            error(function(err) {
+                console.log(err);
+            })
+        ;
+    };
 }

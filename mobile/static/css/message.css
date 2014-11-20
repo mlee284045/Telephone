@@ -1,6 +1,8 @@
 .pass-page textarea, .start-page textarea {
     width: 100%;
-    border: 1px dotted lightgray;
+    border: 1px solid lightgray;
+    border-radius: 1px;
+    padding: 15px;
     resize: none;
 }
 

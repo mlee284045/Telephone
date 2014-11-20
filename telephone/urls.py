@@ -15,6 +15,6 @@ urlpatterns = patterns('',
     url(r'^api/register/', api.views.UserRegister.as_view()),
     url(r'^api/auth/', api.views.AuthView.as_view(), name='authenticate'),
     url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
-    # url(r'^token-auth/', api.views.obtain_auth_token),
+    url(r'^token-auth/', 'rest_framework.authtoken.views.obtain_auth_token'),
     url(r'^admin/', include(admin.site.urls)),
 )
