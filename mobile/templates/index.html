@@ -23,11 +23,9 @@
         <!--- JavaScript --->
         <script src="{% static "js/telephone.js" %}"></script>
 
-        <!--- Factories --->
-        <script src="{% static "js/factories/userFactory.js" %}"></script>
-
         <!--- Resources --->
         <script src="{% static "js/factories/userResource.js" %}"></script>
+        <script src="{% static "js/factories/telephoneResource.js" %}"></script>
 
         <!--- Filters --->
         <script src="{% static "js/filter/trustedSource.js" %}"></script>
@@ -39,6 +37,8 @@
         <script src="{% static "js/controllers/registerController.js" %}"></script>
         <script src="{% static "js/controllers/loginController.js" %}"></script>
         <script src="{% static "js/controllers/passController.js" %}"></script>
+        <script src="{% static "js/controllers/landingController.js" %}"></script>
+        <script src="{% static "js/controllers/successController.js" %}"></script>
 
         <!-- Bootstrap & Font Awesome CSS by CDN -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -52,15 +52,16 @@
     </head>
 
     <body class="color-red">
-        <!--- Sidebars --->
+        <header class="header color-white"><div class="top-head-curve"></div></header>
+        <div class="container-fluid color-white"></div>
         <div ng-app="telephone" class="transparent">
             <div class="navbar container-fluid transparent">
                 <div class="col-xs-6 col-xs-offset-3 centered title transparent">
                     <a href="#"><img src="{% static "img/Crown.png" %}" width="100px"></a><br>
                 </div>
             </div>
-            <div class="container centered telephone color-white">
-                <p>Telephone</p>
+            <div class="container centered telephone color-white" id="cone-top">
+                <p>TELEPHONE</p>
             </div>
             <div class="container color-white inset-shadow outset-shadow">
                 <div class="view app-content color-white" ng-view></div>

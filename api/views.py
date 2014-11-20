@@ -1,7 +1,8 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
-from rest_framework import viewsets, generics
+from rest_framework import viewsets, generics, status
 from rest_framework.authentication import BasicAuthentication
+from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -56,3 +57,13 @@ class TelephoneViewSet(viewsets.ModelViewSet):
     def pre_save(self, obj):
         obj.owner = self.request.user
         obj.get_sound_url()
+
+    @detail_route(methods=['post'])
+    def pass_it_on(self, request, pk):
+        changed_text = request.DATA.get('text')
+        orig = Telephone.objects.get(pk=pk)
+        copy = orig.pass_it_on(changed_text, request.user)
+        copy.get_sound_url()
+        copy.save()
+        print copy.sound_url
+        return Response(status=status.HTTP_200_OK)

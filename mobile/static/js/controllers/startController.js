@@ -1,19 +1,23 @@
-function startController($scope, $http) {
+function startController($scope, $http, $location) {
     console.log('start');
 
     $scope.audio = true;
 
     $http.get('/api/users/');
 
-    $scope.getSound = function(user) {
+    $scope.createSound = function() {
+        console.log('creating sound');
         var data = {
             "text": $scope.text,
-            "owner": user
+            "owner": 1
         };
-        $http.post('/api/telephone/', data).
+//        var auth['Authorization'] = localStorage['Authorization'];
+        console.log(data);
+        $http.post('/api/telephones/', data, {headers: localStorage}).
             success(function(res) {
                 console.log('worked');
                 console.log(res);
+                $location.path('/success/');
             }).
             error(function(err) {
                 console.log('did not work');

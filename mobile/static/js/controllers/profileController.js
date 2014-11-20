@@ -1,5 +1,5 @@
 function profileController($scope, $http) {
-    var num = 2;
+    var num = localStorage['id'];
     $scope.editMode = true;
     $http.get('api/users/'+ num + '/').
         success(function(res) {

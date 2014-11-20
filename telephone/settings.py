@@ -111,7 +111,6 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-
 try:
     from local_settings import *
 except ImportError:

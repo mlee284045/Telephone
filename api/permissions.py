@@ -26,5 +26,4 @@ class IsAuthenticatedOrCreate(permissions.BasePermission):
     Custom permission to only allow anon users to have write permission
     """
     def has_permission(self, request, view):
-        # Write permissions are only allowed for unauthenticated users
-        return not request.user.is_authenticated()
+        return request.user.is_anonymous()
