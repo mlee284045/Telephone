@@ -13,6 +13,8 @@ function startController($scope, $http, $location) {
         };
 //        var auth['Authorization'] = localStorage['Authorization'];
         console.log(data);
+        // This looks different from how you grab headers from local storage in your factories.
+        // Not sure if I follow where `localStorage` is coming from here.
         $http.post('/api/telephones/', data, {headers: localStorage}).
             success(function(res) {
                 console.log('worked');
