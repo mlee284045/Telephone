@@ -2,6 +2,7 @@ function profileController($scope, $http) {
     $scope.profile = {};
     var num = localStorage['id'];
     $scope.editMode = true;
+    // You did a good job putting some api calls into services/factories, these could also be in one too
     $http.get('api/users/'+ num + '/').
         success(function(res) {
             console.log(res);
