@@ -56,6 +56,8 @@ class TelephoneViewSet(viewsets.ModelViewSet):
 
     def pre_save(self, obj):
         obj.owner = self.request.user
+        # Would it be better to just override Telephone's save method so that it calls `get_sound_url`
+        # You run the risk of forgetting to code it whenever you're creating Telephone objects
         obj.get_sound_url()
 
     @detail_route(methods=['post'])
@@ -63,6 +65,7 @@ class TelephoneViewSet(viewsets.ModelViewSet):
         changed_text = request.DATA.get('text')
         orig = Telephone.objects.get(pk=pk)
         copy = orig.pass_it_on(changed_text, request.user)
+        # Doesn't `get_sound_url` get called already?
         copy.get_sound_url()
         copy.save()
         print copy.sound_url
