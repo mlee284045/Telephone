@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from mobile.models import Telephone
 
-
+# +10 points for testing your demo day project!
 class ModelTestCase(TestCase):
     def setUp(self):
         self.user1 = User.objects.create_user(
@@ -35,6 +35,8 @@ class ModelTestCase(TestCase):
         self.orig.get_sound_url()
         self.assertIsNotNone(self.orig.sound_url)
 
+    # On a development team you wouldn't want to include print statements in your test because it can make
+    # the output a bit messy for other people and your CI server.
     def test_pass_it_on(self):
         print self.orig.pk
         self.assertIsNone(self.orig.parent, 'Has no Parent')
