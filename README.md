@@ -10,5 +10,4 @@ When I find time and begin working on this project, I'll update this README*
 
 ##### Things that I would like to do in the future
 - Change the api for speech to Web Speech API
-- Current filtering mechanics are nonexistant which would need to be remedied asap
 - The api I created needs to be reorganized and documented
